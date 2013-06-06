@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import tornado.ioloop
 from gitAggregate import app
 

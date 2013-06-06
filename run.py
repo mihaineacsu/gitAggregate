@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import tornado.ioloop
-from gitAggregate import app, loop, db
+from gitAggregate import app, loop
 
 if __name__ == "__main__":
     """

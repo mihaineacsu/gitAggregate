@@ -5,7 +5,7 @@ import PostServer
 
 # Connects to the default host and port on mongodb
 client = MongoClient()
-db = client.git_payloads
+db = client.db
 
 # Maps root URL to MainHandler
 # and passes db reference 

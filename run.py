@@ -5,12 +5,18 @@ from gitAggregate import app, loop
 
 usage = 'Usage: '
 
-def listen(port=8888):
+def listen(port):
     """
-        Listens on local port.
-        Runs indefinitely.
+        Receives list containg local port to listen on.
+        Listens on local port and runs indefinitely.
     """
-    app.listen(8888)
+
+    if not port:
+        port = 8888
+    else:
+        port = port[0]
+
+    app.listen(port)
     loop.start()
 
 def run_command(command):
@@ -18,6 +24,7 @@ def run_command(command):
         Switch based on given command line argument.
         Returns refernce to function that is to be run.
     """
+
     return {
         'query' : query,
         'listen': listen,
@@ -37,4 +44,4 @@ if __name__ == "__main__":
         if foo is None:
             print usage
         else:
-            foo(sys.argv[1:])
+            foo(args[1:])

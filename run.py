@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import tornado.ioloop
-from gitAggregate import app
+from gitAggregate import app, loop, db
 
 if __name__ == "__main__":
     """
@@ -9,4 +9,4 @@ if __name__ == "__main__":
         Runs indefinitely.
     """
     app.listen(8888)
-    tornado.ioloop.IOLoop.instance().start()
+    loop.start()

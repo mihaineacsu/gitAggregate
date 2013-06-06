@@ -1,9 +1,14 @@
 #!/usr/bin/env python
 
 import sys
+import textwrap
 from gitAggregate import app, loop
 
-usage = 'Usage: '
+usage = textwrap.dedent("""\
+        Usage: ./run.py <command> [<args>]
+        Commands:
+            listen [port no]    Listens by default on 8888
+            query [action]      Returns list of commit authors""")
 
 def listen(port):
     """

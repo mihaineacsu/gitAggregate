@@ -2,13 +2,13 @@
 
 import sys
 import textwrap
-from gitAggregate import app, loop
+from gitAggregate import app, loop, query_db
 
 usage = textwrap.dedent("""\
         Usage: ./run.py <command> [<args>]
         Commands:
             listen [port no]    Listens by default on 8888
-            query [action]      Returns list of commit authors""")
+            query [author]      Returns commits performed by author""")
 
 def listen(port):
     """
@@ -35,8 +35,12 @@ def run_command(command):
         'listen': listen,
     }.get(command, None)
 
-def query(p):
-    pass
+def query(author):
+    if not author:
+        print usage
+        return
+
+    query_db.get_by_author(author)
 
 if __name__ == "__main__":
     args = sys.argv[1:]

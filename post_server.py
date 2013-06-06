@@ -3,7 +3,8 @@ import tornado.web
 
 class MainHandler(tornado.web.RequestHandler):
     def post(self):
-        print self.get_argument('payload')
+        payload_json = self.get_argument('payload')
+        payload_dict = tornado.escape.json_decode(payload_json)
 
 # Maps root URL to MainHandler
 application = tornado.web.Application([
